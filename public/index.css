@@ -1,0 +1,43 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  margin: 0 auto;
+  background: #adadad;
+  font-family: "Lato", sans-serif;
+}
+
+#container {
+  width: 100%;
+  height: 5100%;
+  max-width: 500px;
+  max-height: 800px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+#map {
+  width: 100%;
+  height: 50%;
+}
+
+#description {
+  width: 100%;
+  height: 50%;
+  overflow: scroll;
+}
+
+#description h1 {
+  text-align: center;
+}
+
+#description ol {
+  margin: 0;
+  padding: 0;
+}
+
+#description li {
+  padding: 1rem 2rem;
+}
