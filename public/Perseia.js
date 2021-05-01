@@ -3,6 +3,7 @@ class Perseia {
     constructor() {
 
         this.initMap();
+        this.toggleFullScreen();
 
     }
 
@@ -12,7 +13,7 @@ class Perseia {
             layers: [
                 new ol.layer.Image({
                     source: new ol.source.ImageWMS({
-                        url: 'http://mapas.geomatica.ufpr.br/geoserver/UCM-BASE/wms',
+                        url: 'http://mapas.geomatica.ufpr.br/geoserver/wms',
                         params: { 'LAYERS': 'UCM-BASE:ccja_base_campus,UCM-BASE:ccja_andar_0' },
                         ratio: 1,
                         serverType: 'geoserver',
@@ -28,6 +29,12 @@ class Perseia {
                 zoom: 17
             })
         })
+
+    }
+
+    toggleFullScreen() {
+
+        document.documentElement.requestFullscreen();
 
     }
 
