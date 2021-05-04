@@ -51,7 +51,6 @@ body {
   left: 0;
   background-color: #fff;
   z-index: 9;
-  display: none;
 }
 .content {
   padding: 5rem 2rem;
@@ -80,6 +79,7 @@ body {
   color: rgb(170, 170, 170);
   font-weight: bold;
   position: relative;
+  z-index: 999;
 }
 
 .finish {

@@ -85,13 +85,31 @@ class Perseia {
 
     startFullScreen() {
 
-        document.documentElement.requestFullscreen();
+        let elem = document.documentElement;
+
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
+
+    }
+
+    endFullScreen() {
+
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
 
     }
 
     showFeatureInfo(feature) {
-
-        console.log(feature)
 
         if (this.overlay) this.map.removeOverlay(this.overlay);
 
@@ -125,6 +143,7 @@ class Perseia {
 
         document.getElementById('box-finish').addEventListener('click', () => {
             this.map.removeOverlay(this.overlay);
+            this.endFullScreen()
         });
 
 
