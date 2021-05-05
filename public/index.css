@@ -99,7 +99,8 @@ body {
     padding: 1rem 2rem;
     overflow-y: auto;
   }
-  .content h1 {
+  .content h1,
+  .content h3 {
     padding: 2rem 1rem 1rem 2rem;
     overflow-y: auto;
     text-transform: uppercase;
