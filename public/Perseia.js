@@ -8,9 +8,6 @@ class Perseia {
 
         this.createQgis2webPolyFill();
         this.initElements();
-        this.initMap();
-        this.createClickInteration();
-        this.createLayers();
         this.registerEvents();
 
     }
@@ -46,6 +43,7 @@ class Perseia {
         this.agreeBtn = document.getElementById('agree');
         this.disclaimerElm = document.getElementById('disclaimer');
         this.instructionsElm = document.getElementById('instructions');
+        this.mainElm = document.getElementById('main');
         this.mapElm = document.getElementById('map');
 
     }
@@ -82,6 +80,12 @@ class Perseia {
 
         this.clickInteration = new ol.interaction.Select();
         this.map.addInteraction(this.clickInteration);
+        this.clickInteration.on('select', evt => {
+
+            this.showFeatureInfo(evt.selected[0]);
+            this.clickInteration.getFeatures().clear();
+
+        });
 
     }
 
@@ -162,14 +166,14 @@ class Perseia {
         this.startBtn.addEventListener('click', () => {
 
             this.instructionsElm.classList.add('d-none');
-        });
-
-        this.clickInteration.on('select', evt => {
-
-            this.showFeatureInfo(evt.selected[0]);
-            this.clickInteration.getFeatures().clear();
+            this.mainElm.classList.remove('d-none');
+            this.initMap();
+            this.createClickInteration();
+            this.createLayers();
 
         });
+
+
 
 
     }
