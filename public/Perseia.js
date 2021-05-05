@@ -43,7 +43,9 @@ class Perseia {
     initElements() {
 
         this.startBtn = document.getElementById('start');
+        this.agreeBtn = document.getElementById('agree');
         this.disclaimerElm = document.getElementById('disclaimer');
+        this.instructionsElm = document.getElementById('instructions');
         this.mapElm = document.getElementById('map');
 
     }
@@ -149,13 +151,17 @@ class Perseia {
 
     }
 
+
     registerEvents() {
+
+        this.agreeBtn.addEventListener('click', () => {
+            this.disclaimerElm.classList.add('d-none');
+            this.instructionsElm.classList.remove('d-none');
+        });
 
         this.startBtn.addEventListener('click', () => {
 
-            this.disclaimerElm.style.display = 'none';
-            this.startFullScreen();
-
+            this.instructionsElm.classList.add('d-none');
         });
 
         this.clickInteration.on('select', evt => {
