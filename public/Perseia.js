@@ -41,9 +41,14 @@ class Perseia {
 
         this.startBtn = document.getElementById('start');
         this.agreeBtn = document.getElementById('agree');
+        this.cancelBtn = document.getElementById('box-cancel');
+        this.finishBtn = document.getElementById('box-finish');
         this.disclaimerElm = document.getElementById('disclaimer');
         this.instructionsElm = document.getElementById('instructions');
         this.mainElm = document.getElementById('main');
+        this.boxElm = document.getElementById('box');
+        this.thanksElm = document.getElementById('thanks');
+        this.boxContentElm = document.getElementById('box-content');
         this.mapElm = document.getElementById('map');
 
     }
@@ -117,40 +122,17 @@ class Perseia {
 
     showFeatureInfo(feature) {
 
-        if (this.overlay) this.map.removeOverlay(this.overlay);
-
-        let width = getComputedStyle(this.mapElm).getPropertyValue("width").replace('px', '');
-        let center = this.map.getView().getCenter();
-        let boxElm = document.createElement('div');
-
-        boxElm.style.width = width * 0.7 + 'px';
-        boxElm.className = 'box';
-        boxElm.innerHTML = `
+        this.boxElm.classList.remove('d-none');
+        this.boxContentElm.innerHTML = `
             <h3>${feature.getProperties().ambiente}</h3>
             <p>Você selecionou como destino "${feature.getProperties().ambiente}".</p>
-            <p>Deseja finalizar o teste?</p><br>
-            <div>
-                <a id="box-cancel" href="#">Cancelar</a> 
-                <a id="box-finish" class="finish" href="#">Finalizar</a>
-            </div>
+            <p>Deseja finalizar o teste?</p>
         `;
 
-        this.overlay = new ol.Overlay({
-            element: boxElm,
-            positioning: 'center-center',
-            position: center
-        });
-        this.map.addOverlay(this.overlay);
 
 
-        document.getElementById('box-cancel').addEventListener('click', () => {
-            this.map.removeOverlay(this.overlay);
-        });
 
-        document.getElementById('box-finish').addEventListener('click', () => {
-            this.map.removeOverlay(this.overlay);
-            this.endFullScreen()
-        });
+
 
 
     }
@@ -173,8 +155,15 @@ class Perseia {
 
         });
 
+        this.cancelBtn.addEventListener('click', () => {
+            this.boxElm.classList.add('d-none');
+        });
 
-
+        this.finishBtn.addEventListener('click', () => {
+            this.boxElm.classList.add('d-none');
+            this.thanksElm.classList.remove('d-none');
+            this.endFullScreen()
+        });
 
     }
 

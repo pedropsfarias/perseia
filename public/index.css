@@ -31,6 +31,10 @@ body {
   font-weight: bold;
 }
 
+.f-left {
+  float: left !important;
+}
+
 .green {
   color: #fff !important;
   background: rgb(62, 136, 1) !important;
