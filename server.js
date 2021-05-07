@@ -7,13 +7,11 @@ const port = 3000;
 
 app.use(bodyParser.text());
 
-app.get('/', (req, res) => {
-    res.send('Perseia API running...')
-})
+app.use(express.static('public'));
 
-app.post('/', (req, res) => {
+app.post('/api/', (req, res) => {
 
-    fs.open('data.csv', 'a', 666, function (e, id) {
+    fs.open('data.csv', 'a', 777, function (e, id) {
         fs.write(id, req.body + "\n", null, 'utf8', function () {
             fs.close(id, function () {
                 res.send('ok');

@@ -16,14 +16,6 @@ class Perseia {
 
         this.map = new ol.Map({
             layers: [
-                // new ol.layer.Image({
-                //     source: new ol.source.ImageWMS({
-                //         url: 'http://mapas.geomatica.ufpr.br/geoserver/wms',
-                //         params: { 'LAYERS': 'UCM-BASE:ccja_base_campus,UCM-BASE:ccja_andar_0' },
-                //         ratio: 1,
-                //         serverType: 'geoserver',
-                //     }),
-                // }),
                 new ol.layer.Tile({
                     source: new ol.source.OSM()
                 })
@@ -42,14 +34,20 @@ class Perseia {
         this.startBtn = document.getElementById('start');
         this.agreeBtn = document.getElementById('agree');
         this.cancelBtn = document.getElementById('box-cancel');
-        this.finishBtn = document.getElementById('box-finish');
+        this.boxFinishBtn = document.getElementById('box-finish');
+        this.surveyFinishBtn = document.getElementById('survey-finish');
         this.disclaimerElm = document.getElementById('disclaimer');
         this.instructionsElm = document.getElementById('instructions');
         this.mainElm = document.getElementById('main');
         this.boxElm = document.getElementById('box');
+        this.surveyElm = document.getElementById('survey');
         this.thanksElm = document.getElementById('thanks');
         this.boxContentElm = document.getElementById('box-content');
         this.mapElm = document.getElementById('map');
+
+        this.q1Elm = document.getElementById('q1');
+        this.q2Elm = document.getElementById('q2');
+        this.q3Elm = document.getElementById('q3');
 
     }
 
@@ -129,11 +127,35 @@ class Perseia {
             <p>Deseja finalizar o teste?</p>
         `;
 
+    }
+
+    getSurveyDataAsTSV() {
+
+        let data = '';
+
+        data += `${this.startTime}\t`;
+        data += `${this.endTime}\t`;
+        data += `${(this.endTime - this.startTime) / 1000}\t`;
+        data += `${this.q1Elm.value}\t`;
+        data += `${this.q2Elm.value}\t`;
+        data += `${this.q3Elm.value}\t`;
 
 
+        return data;
+    }
 
+    saveSurvey() {
 
-
+        let data = this.getSurveyDataAsTSV();
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api', true);
+        xhr.setRequestHeader('Content-type', 'text/plain');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+        }
+        xhr.send(data);
 
     }
 
@@ -149,9 +171,11 @@ class Perseia {
 
             this.instructionsElm.classList.add('d-none');
             this.mainElm.classList.remove('d-none');
+            this.startFullScreen();
             this.initMap();
             this.createClickInteration();
             this.createLayers();
+            this.startTime = Date.now();
 
         });
 
@@ -159,11 +183,36 @@ class Perseia {
             this.boxElm.classList.add('d-none');
         });
 
-        this.finishBtn.addEventListener('click', () => {
+        this.boxFinishBtn.addEventListener('click', () => {
+            this.endTime = Date.now();
             this.boxElm.classList.add('d-none');
-            this.thanksElm.classList.remove('d-none');
+            this.surveyElm.classList.remove('d-none');
             this.endFullScreen()
+
+
         });
+
+        this.surveyFinishBtn.addEventListener('click', () => {
+
+            if (this.validateSurvey()) {
+
+                this.surveyElm.classList.add('d-none');
+                this.thanksElm.classList.remove('d-none');
+                this.saveSurvey();
+
+            } else {
+
+                alert('Para continuar, preencha os campos obrigatórios.');
+
+            }
+
+        });
+
+    }
+
+    validateSurvey() {
+
+        return this.q1Elm.value && this.q1Elm.value && this.q1Elm.value;
 
     }
 
