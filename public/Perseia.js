@@ -4,11 +4,22 @@ class Perseia {
 
         this.layersName = [
             'ccja_andar_1_0'
-        ]
+        ];
+
+        this.routes = [
+            {
+                name: 'rota1',
+                type: 'complete'
+            }
+
+        ];
 
         this.createQgis2webPolyFill();
         this.initElements();
         this.registerEvents();
+        //this.initMap(); //remove
+        //this.initRouteLayer();
+        //this.createRoute();
 
     }
 
@@ -29,6 +40,16 @@ class Perseia {
 
     }
 
+    initRouteLayer() {
+
+        this.routeLayer = new ol.layer.Vector({
+            source: new ol.source.Vector()
+        });
+        this.map.addLayer(this.routeLayer);
+
+
+    }
+
     initElements() {
 
         this.startBtn = document.getElementById('start');
@@ -44,6 +65,7 @@ class Perseia {
         this.thanksElm = document.getElementById('thanks');
         this.boxContentElm = document.getElementById('box-content');
         this.mapElm = document.getElementById('map');
+        this.descriptionElm = document.getElementById('description');
 
         this.q1Elm = document.getElementById('q1');
         this.q2Elm = document.getElementById('q2');
@@ -94,27 +116,27 @@ class Perseia {
 
     startFullScreen() {
 
-        let elem = document.documentElement;
+        // let elem = document.documentElement;
 
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-        }
+        // if (elem.requestFullscreen) {
+        //     elem.requestFullscreen();
+        // } else if (elem.webkitRequestFullscreen) { /* Safari */
+        //     elem.webkitRequestFullscreen();
+        // } else if (elem.msRequestFullscreen) { /* IE11 */
+        //     elem.msRequestFullscreen();
+        // }
 
     }
 
     endFullScreen() {
 
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE11 */
-            document.msExitFullscreen();
-        }
+        // if (document.exitFullscreen) {
+        //     document.exitFullscreen();
+        // } else if (document.webkitExitFullscreen) { /* Safari */
+        //     document.webkitExitFullscreen();
+        // } else if (document.msExitFullscreen) { /* IE11 */
+        //     document.msExitFullscreen();
+        // }
 
     }
 
@@ -159,6 +181,74 @@ class Perseia {
 
     }
 
+    createRoute() {
+
+        this.createStepedRoute();
+
+    }
+
+    createStepedRoute() {
+
+        let route = rota1;
+        this.routeIndex = 1;
+        this.routeLayer.getSource().clear();
+
+        for (let i = 0; i < route.features.length; i++) {
+
+            const f = route.features[i];
+            let color;
+
+            switch (i) {
+                case this.routeIndex:
+                    color = "blue";
+                    break;
+                case this.routeIndex - 1:
+                    color = "cyan";
+                    break;
+                case this.routeIndex + 1:
+                    color = "red";
+                    break;
+                default:
+                    color = "#999999";
+                    break;
+            }
+
+            this.drawSegment(f, color, 2);
+
+        }
+
+    }
+
+    getStepedRouteUI() {
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+    drawSegment(s, color, width) {
+
+        let format = new ol.format.GeoJSON();
+        let feature = format.readFeature(s, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857'
+        });
+        feature.setStyle(new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color, width
+            })
+        }));
+        this.routeLayer.getSource().addFeature(feature);
+
+    }
+
 
     registerEvents() {
 
@@ -175,6 +265,8 @@ class Perseia {
             this.initMap();
             this.createClickInteration();
             this.createLayers();
+            this.initRouteLayer();
+            this.createRoute();
             this.startTime = Date.now();
 
         });
