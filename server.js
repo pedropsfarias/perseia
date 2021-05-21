@@ -9,9 +9,12 @@ app.use(bodyParser.text());
 
 app.use(express.static('public'));
 
-app.post('/api/', (req, res) => {
+app.post('/api/:test', (req, res) => {
 
-    fs.open('data.csv', 'a', 777, function (e, id) {
+    const test = req.params.test || 'desconhecido';
+    const file = test + '.csv';
+
+    fs.open(file, 'a', 777, function (e, id) {
         fs.write(id, req.body + "\n", null, 'utf8', function () {
             fs.close(id, function () {
                 res.send('ok');

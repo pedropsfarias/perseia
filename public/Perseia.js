@@ -8,18 +8,78 @@ class Perseia {
 
         this.routes = [
             {
+                test: 'sem_rel_esp',
                 name: 'rota1',
-                type: 'complete'
+                type: 'complete',
+                title: 'Sem RelEsp',
+                survey: [
+                    {
+                        description: 'VOCÊ COSTUMA SE PERDER EM AMBIENTES INDOOR?',
+                        type: 'stars'
+                    },
+                    {
+                        description: 'TEVE DIFICULDADE?',
+                        type: 'stars'
+                    },
+                    {
+                        description: 'OLHOU INSTRUÇÕES ANTERIORES PARA TER CERTEZA QUE ESTAVA NO LOCAL CORRETO?',
+                        type: 'yesno'
+                    },
+                    {
+                        description: 'TEM NOÇÃO DE DISTANCIA?',
+                        type: 'stars'
+                    },
+                    {
+                        description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                        type: 'yesno'
+                    },
+                    {
+                        description: 'DESCREVA A ROTA?',
+                        type: 'textarea'
+                    },
+                    {
+                        description: 'QUAIS SIMBOLOS VC SE LEMBRA?',
+                        type: 'textarea'
+                    },
+                    {
+                        image: 'p1.png',
+                        description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
+                        type: 'ab'
+                    },
+                ]
+            },
+            {
+                name: 'rota2',
+                type: 'complete',
+                title: 'RelEslp + MR + POI',
+                test: 'com_rel_esp_mr_poi',
+                survey: [
+                    {
+                        description: 'Pegunta 1',
+                        type: 'stars'
+                    },
+                    {
+                        image: 'p1.png',
+                        description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
+                        type: 'ab'
+                    },
+                ]
             }
 
         ];
 
+        this.routeNumber = prompt("--- Isso vai sair ----\nDigite o número da rota: (1 ou 2)", "1")
+
         this.createQgis2webPolyFill();
         this.initElements();
         this.registerEvents();
+
         //this.initMap(); //remove
         //this.initRouteLayer();
         //this.createRoute();
+
+        //this.routeDefinition = this.routes[0];
+        //this.startSurvey();
 
     }
 
@@ -66,10 +126,10 @@ class Perseia {
         this.boxContentElm = document.getElementById('box-content');
         this.mapElm = document.getElementById('map');
         this.descriptionElm = document.getElementById('description');
+        this.titleElm = document.getElementById('title');
+        this.surveyContentElm = document.getElementById('survey-content');
 
-        this.q1Elm = document.getElementById('q1');
-        this.q2Elm = document.getElementById('q2');
-        this.q3Elm = document.getElementById('q3');
+
 
     }
 
@@ -116,27 +176,27 @@ class Perseia {
 
     startFullScreen() {
 
-        // let elem = document.documentElement;
+        let elem = document.documentElement;
 
-        // if (elem.requestFullscreen) {
-        //     elem.requestFullscreen();
-        // } else if (elem.webkitRequestFullscreen) { /* Safari */
-        //     elem.webkitRequestFullscreen();
-        // } else if (elem.msRequestFullscreen) { /* IE11 */
-        //     elem.msRequestFullscreen();
-        // }
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+        }
 
     }
 
     endFullScreen() {
 
-        // if (document.exitFullscreen) {
-        //     document.exitFullscreen();
-        // } else if (document.webkitExitFullscreen) { /* Safari */
-        //     document.webkitExitFullscreen();
-        // } else if (document.msExitFullscreen) { /* IE11 */
-        //     document.msExitFullscreen();
-        // }
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) { /* Safari */
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { /* IE11 */
+            document.msExitFullscreen();
+        }
 
     }
 
@@ -154,23 +214,42 @@ class Perseia {
     getSurveyDataAsTSV() {
 
         let data = '';
-
         data += `${this.startTime}\t`;
         data += `${this.endTime}\t`;
         data += `${(this.endTime - this.startTime) / 1000}\t`;
-        data += `${this.q1Elm.value}\t`;
-        data += `${this.q2Elm.value}\t`;
-        data += `${this.q3Elm.value}\t`;
 
+        let survey = this.routeDefinition.survey;
+        for (let i = 0; i < survey.length; i++) {
+
+            const question = survey[i];
+            switch (question.type) {
+                case 'stars':
+                case 'yesno':
+                case 'ab':
+
+                    let input = document.querySelectorAll(`input[name='${question.name}']:checked`)[0];
+                    data += input.value + '\t';
+                    break;
+
+                case 'textarea':
+                    data += question.input.value + '\t';
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
 
         return data;
+
     }
 
     saveSurvey() {
 
         let data = this.getSurveyDataAsTSV();
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', '/api', true);
+        xhr.open('POST', '/api/' + this.routeDefinition.test, true);
         xhr.setRequestHeader('Content-type', 'text/plain');
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -183,55 +262,73 @@ class Perseia {
 
     createRoute() {
 
-        this.createStepedRoute();
+        this.routeDefinition = this.routes[this.routeNumber - 1];
+        if (this.routeDefinition.type == 'complete') {
+            this.createCompleteRoute();
+        }
 
     }
 
-    createStepedRoute() {
+    createCompleteRoute() {
 
-        let route = rota1;
-        this.routeIndex = 1;
+        this.descriptionElm.innerHTML = '';
+        this.titleElm.innerHTML = this.routeDefinition.title;
+
+        let route = window[this.routeDefinition.name];
         this.routeLayer.getSource().clear();
+
+        console.log(this.routeLayer)
 
         for (let i = 0; i < route.features.length; i++) {
 
             const f = route.features[i];
-            let color;
-
-            switch (i) {
-                case this.routeIndex:
-                    color = "blue";
-                    break;
-                case this.routeIndex - 1:
-                    color = "cyan";
-                    break;
-                case this.routeIndex + 1:
-                    color = "red";
-                    break;
-                default:
-                    color = "#999999";
-                    break;
-            }
+            const color = "red";
 
             this.drawSegment(f, color, 2);
+            this.descriptionElm.innerHTML += this.getRouteHtml(f);
 
         }
+
+        this.map.getView().fit(this.routeLayer.getSource().getExtent(), {
+            padding: [33, 33, 33, 33]
+        });
+
+
+    }
+
+    getRouteHtml(feature) {
+
+        let refer = '';
+        if (feature.properties.referencia) {
+            refer = `<span style="background: url(imgs/${feature.properties.icone}) no-repeat;">
+                    ${feature.properties.referencia}
+                </span >`;
+        }
+
+        return `
+            <div class="description-item active">
+                <div class="description-text">
+                    ${feature.properties.ordem}) ${feature.properties.descricao}
+                    ${refer}
+                </div>
+            </div>
+        `;
 
     }
 
     getStepedRouteUI() {
 
-
-
-
+        /*
+        <div class="description-item active">
+                <div class="description-text">
+                    Vire a direita na <span style="background: url(imgs/lanchonete.png) no-repeat;">
+                        Lanchonete</span>
+                    <button>Próximo</button>
+                </div>
+            </div>
+        */
 
     }
-
-
-
-
-
-
 
     drawSegment(s, color, width) {
 
@@ -246,6 +343,125 @@ class Perseia {
             })
         }));
         this.routeLayer.getSource().addFeature(feature);
+
+    }
+
+    getRadioElm(name, value) {
+
+        let container = document.createElement('div');
+
+        let star = document.createElement('input');
+        star.type = 'radio';
+        star.value = value;
+        star.name = name;
+
+        let label = document.createElement('label');
+        label.innerHTML = value;
+
+        container.append(star);
+        container.append(label);
+
+        return container;
+
+    }
+
+    getImageElm(name) {
+
+        let image = document.createElement('img');
+        if (name) {
+            image.src = `imgs/${name}`;
+            return image;
+        }
+        return document.createElement('div');
+
+    }
+
+    createUUID() {
+
+        let dt = new Date().getTime();
+        let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            let r = (dt + Math.random() * 16) % 16 | 0;
+            dt = Math.floor(dt / 16);
+            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+        return uuid;
+    }
+
+    startSurvey() {
+
+        this.surveyElm.classList.remove('d-none');
+        this.surveyContentElm.innerHTML = '';
+
+        let survey = this.routeDefinition.survey;
+        for (let i = 0; i < survey.length; i++) {
+
+            let question = survey[i];
+            question.label = document.createElement('label');
+            question.label.innerHTML = question.description;
+            this.surveyContentElm.append(question.label);
+            this.surveyContentElm.append(this.getImageElm(question.image));
+
+            switch (question.type) {
+                case 'stars':
+
+                    question.name = this.createUUID();
+                    question.s1 = this.getRadioElm(question.name, 1);
+                    question.s2 = this.getRadioElm(question.name, 2);
+                    question.s3 = this.getRadioElm(question.name, 3);
+                    question.s4 = this.getRadioElm(question.name, 4);
+                    question.s5 = this.getRadioElm(question.name, 5);
+
+                    this.surveyContentElm.append(question.s1);
+                    this.surveyContentElm.append(question.s2);
+                    this.surveyContentElm.append(question.s3);
+                    this.surveyContentElm.append(question.s4);
+                    this.surveyContentElm.append(question.s5);
+
+                    break;
+
+                case 'yesno':
+
+                    question.name = this.createUUID();
+                    question.s1 = this.getRadioElm(question.name, 'Sim');
+                    question.s2 = this.getRadioElm(question.name, 'Não');
+
+                    this.surveyContentElm.append(question.s1);
+                    this.surveyContentElm.append(question.s2);
+
+                    break;
+
+                case 'ab':
+
+                    question.name = this.createUUID();
+                    question.s1 = this.getRadioElm(question.name, 'A');
+                    question.s2 = this.getRadioElm(question.name, 'B');
+
+                    this.surveyContentElm.append(question.s1);
+                    this.surveyContentElm.append(question.s2);
+
+                    break;
+
+
+                case 'textarea':
+
+
+                    question.input = document.createElement('textarea');
+                    question.input.rows = 5;
+
+                    this.surveyContentElm.append(question.input);
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            this.surveyContentElm.append(document.createElement('br'));
+
+
+        }
+
+
 
     }
 
@@ -278,7 +494,7 @@ class Perseia {
         this.boxFinishBtn.addEventListener('click', () => {
             this.endTime = Date.now();
             this.boxElm.classList.add('d-none');
-            this.surveyElm.classList.remove('d-none');
+            this.startSurvey();
             this.endFullScreen()
 
 
@@ -304,7 +520,30 @@ class Perseia {
 
     validateSurvey() {
 
-        return this.q1Elm.value && this.q1Elm.value && this.q1Elm.value;
+        let isOk = [];
+        let checker = arr => arr.every(Boolean);
+        let survey = this.routeDefinition.survey;
+        for (let i = 0; i < survey.length; i++) {
+
+            const question = survey[i];
+            switch (question.type) {
+                case 'stars':
+                case 'yesno':
+                case 'ab':
+                    isOk.push(document.querySelectorAll(`input[name='${question.name}']:checked`).length > 0);
+                    break;
+
+                case 'textarea':
+                    isOk.push(Boolean(question.input.value));
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        return checker(isOk);
 
     }
 

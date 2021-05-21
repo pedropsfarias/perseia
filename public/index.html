@@ -15,17 +15,27 @@
 
 <body>
 
-    <div id="disclaimer" class="full-mask ">
-        <div class="content">
-            <h1>Bem vindo ao teste da Amanda!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed est urna. Nunc pulvinar
-                pellentesque
-                neque eget
-                condimentum. Integer a metus molestie turpis mollis interdum. Fusce a vestibulum ipsum. Nunc viverra
-                tristique mauris,
-                quis venenatis eros faucibus vel. Aenean ac erat sapien. Vivamus condimentum nunc eu lacus lobortis
-                eleifend. Ut non
-                tincidunt turpis. </p>
+    <div id="disclaimer" class="full-mask">
+        <div class="content ">
+            <h1>TERMO DE PARTICIPAÇÃO DO TESTE</h1>
+
+            <p> Você é convidado(a) a colaborar voluntariamente, por meio da realização deste teste, com a
+                avaliação da descrição de rotas em sistemas de navegação indoor. Esta etapa da pesquisa visa
+                analisar a compreensão e percepção do usuário em relação ao ambiente, além do esforço cognitivo
+                empregado, ao receber tipos diferentes de instrução e diferentes formas de apresentação.
+
+            <p> O teste pode ser realizado em dispositivos móveis ou desktop.</p>
+
+            <p> Você aceita participar deste teste? Visto que a preservação do anonimato é garantida e que as
+                informações obtidas serão utilizadas exclusivamente para a realização desta pesquisa. Sua decisão de
+                participação é voluntária, podendo ser encerrada a qualquer momento.</p>
+
+            <p>Amanda Pereira Antunes - Doutoranda no programa de Pós-Graduação em Ciências Geodésicas da
+                Universidade Federal do Paraná (PPGCG/UFPR)
+                amandapereiraantunes@gmail.com</p>
+
+            <p>Profa. Dra. Luciene Stamato Delazari – Orientadora
+                luciene@ufpr.br</p>
 
             <p> <a class="btn green" id="agree" href="#">Concordo com os termos</a></p>
         </div>
@@ -88,16 +98,7 @@
     <div id="survey" class="full-mask d-none">
         <div class="content">
             <h3>Questionário</h3>
-            <p class="red">* Obrigatório</p>
-            <label for="q1">vc olhou tudo? <span class="red">*</span></label>
-            <textarea name="" id="q1" rows="5"></textarea>
-
-            <label for="q2">vc prefere o que? <span class="red">*</span></label>
-            <textarea name="" id="q2" rows="5"></textarea>
-
-            <label for="q3">te atrapalha? <span class="red">*</span></label>
-            <textarea name="" id="q3" rows="5"></textarea>
-
+            <div class="survey-content" id="survey-content"></div>
             <a class="btn green btn-fix" id="survey-finish" href="#">Salvar</a>
         </div>
     </div>
@@ -110,40 +111,16 @@
 
     <div id="main" class="content d-none">
         <div class="title">
-            <h1>Labfoto → Labtopo</h1>
+            <h1 id="title"></h1>
         </div>
         <div class="map" id="map"></div>
-        <div id="description" class="description">
-
-
-            <div class="w-20 row">
-                <div class="line"></div>
-            </div>
-            <div class="w-80 row">
-                <p>Vire à Esquerda</p>
-            </div>
-
-            <div class="w-20 row">
-                <div class="line"></div>
-            </div>
-            <div class="w-80 row">
-                <p>Vire siga em frente</p>
-            </div>
-
-            <div class="w-20 row">
-                <div class="line"></div>
-            </div>
-            <div class="w-80 row">
-                <p>Vire à Direita</p>
-            </div>
-
-
-        </div>
+        <div id="description" class="description"></div>
     </div>
 
 </body>
 <script src="layers/ccja_andar_1_0.js"></script>
 <script src="layers/rota1.js"></script>
+<script src="layers/rota2.js"></script>
 <script src="styles/ccja_andar_1_0_style.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
 <script src="Perseia.js"></script>
