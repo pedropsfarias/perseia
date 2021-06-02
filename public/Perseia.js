@@ -2,84 +2,213 @@ class Perseia {
 
     constructor() {
 
+        this.surveysData = '';
         this.layersName = [
-            'ccja_andar_1_0'
+            //'ccja_andar0_1',
+
         ];
 
-        this.routes = [
+        // let refer = '';
+        // if (feature.properties.referencia) {
+        //     refer = `<span style="background: url(imgs/${feature.properties.icone}) no-repeat;">
+        //             ${feature.properties.referencia}
+        //         </span >`;
+        // }
+
+        // return `
+        //     <div class="description-item active">
+        //         <div class="description-text">
+        //             ${feature.properties.ordem}) ${feature.properties.descricao}
+        //             ${refer}
+        //         </div>
+        //     </div>
+
+        this.tests = [
             {
                 test: 'sem_rel_esp',
-                name: 'rota1',
-                type: 'complete',
-                title: 'Sem RelEsp',
-                survey: [
+                routes: [
                     {
-                        description: 'VOCÊ COSTUMA SE PERDER EM AMBIENTES INDOOR?',
-                        type: 'stars'
+                        type: 'complete',
+                        title: 'ROTA RUBENS MEISTER',
+                        startPoint: [-49.2328477, -25.4522988],
+                        descriptions: [
+                            `<div class="description-text">
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            '</div>`,
+                            `<div class="description-text">
+                                1) Caminhe para oeste por 22 m
+                            </div>`,
+                            `<div class="description-text">
+                                2) Caminhe para o norte por 40 m
+                            </div>`,
+                            `<div class="description-text">
+                                3) Caminhe para oeste por 15 m
+                            </div>`,
+                            `<div class="description-text">
+                                4) Caminhe para o norte por  20 m
+                            </div>`,
+                            `<div class="description-text">
+                                5) Caminhe para leste por 28 m
+                            </div>`,
+                            `<div class="description-text">
+                                6) Caminhe para o norte por  18 m
+                            </div>`,
+                            `<div class="description-text">
+                                7) Caminhe para oeste por 12 m
+                            </div>`,
+                            `<div class="description-text">
+                                8) Caminhe para o norte por  90 m
+                            </div>`
+                        ],
+                        survey: [
+                            {
+                                description: 'Você costuma se perder em ambientes indoor?',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Possui familiaridade com o ambiente? ',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Sentiu dificuldade em executar a tarefa do traçado de rota? ',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Sentiu necessidade de olhar instruções anteriores para ter certeza que estava no local correto? ',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Como você considera sua percepção de distância?',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Se houvessem pontos de referência na descrição você acredita que te ajudariam? Por exemplo, caminhe por 16m em direção ao museu?',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edificios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            // {
+                            //     image: 'p1.png',
+                            //     description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
+                            //     type: 'ab'
+                            // },
+                        ]
                     },
                     {
-                        description: 'TEVE DIFICULDADE?',
-                        type: 'stars'
-                    },
-                    {
-                        description: 'OLHOU INSTRUÇÕES ANTERIORES PARA TER CERTEZA QUE ESTAVA NO LOCAL CORRETO?',
-                        type: 'yesno'
-                    },
-                    {
-                        description: 'TEM NOÇÃO DE DISTANCIA?',
-                        type: 'stars'
-                    },
-                    {
-                        description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                        type: 'yesno'
-                    },
-                    {
-                        description: 'DESCREVA A ROTA?',
-                        type: 'textarea'
-                    },
-                    {
-                        description: 'QUAIS SIMBOLOS VC SE LEMBRA?',
-                        type: 'textarea'
-                    },
-                    {
-                        image: 'p1.png',
-                        description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
-                        type: 'ab'
-                    },
-                ]
-            },
-            {
-                name: 'rota2',
-                type: 'complete',
-                title: 'RelEslp + MR + POI',
-                test: 'com_rel_esp_mr_poi',
-                survey: [
-                    {
-                        description: 'Pegunta 1',
-                        type: 'stars'
-                    },
-                    {
-                        image: 'p1.png',
-                        description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
-                        type: 'ab'
-                    },
+                        type: 'complete',
+                        title: 'ROTA BIOLÓGICAS',
+                        startPoint: [-49.2328354, -25.4461572],
+                        descriptions: [
+                            `<div class="description-text">
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            </div>`,
+                            `<div class="description-text">
+                                1) Caminhe para norte por 6 m
+                            </div>`,
+                            `<div class="description-text">
+                                2) Caminhe para o leste por 24 m
+                            </div>`,
+                            `<div class="description-text">
+                                3) Caminhe para sul por 39 m
+                            </div>`,
+                            `<div class="description-text">
+                                4) Caminhe para o leste por 12 m
+                            </div>`,
+                            `<div class="description-text">
+                                5) Caminhe para sul por 81 m
+                            </div>`,
+                            `<div class="description-text">
+                                6) Caminhe para o leste por 40 m
+                            </div>`,
+                            `<div class="description-text">
+                                7) Caminhe para norte por 8 m
+                            </div>`,
+                            `<div class="description-text">
+                                8) Caminhe para o leste por 33 m
+                            </div>`,
+                            `<div class="description-text">
+                                9) Caminhe para o norte por 11 m
+                            </div>`
+                        ],
+                        survey: [
+                            {
+                                description: 'Possui familiaridade com o ambiente?',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Sentiu dificuldade em executar a tarefa do traçado de rota?',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Sentiu necessidade de olhar instruções anteriores para ter certeza que estava no local correto?',
+                                type: 'stars'
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edificios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            {
+                                image: 'p1.png',
+                                description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
+                                type: 'ab'
+                            },
+                        ]
+                    }
                 ]
             }
+        ]
 
-        ];
+        this.startTimes = [];
+        this.endTimes = [];
 
-        this.routeNumber = prompt("--- Isso vai sair ----\nDigite o número da rota: (1 ou 2)", "1")
 
+
+        this.getSurveyType();
         this.createQgis2webPolyFill();
         this.initElements();
         this.registerEvents();
 
-        //this.initMap(); //remove
-        //this.initRouteLayer();
-        //this.createRoute();
+        // this.initMap(); // remove
+        // this.createLayers();
+        // this.initRouteLayer();
+        // this.initInteractions();
+        // this.createRoute();
+
 
         //this.routeDefinition = this.routes[0];
-        //this.startSurvey();
+        // this.startSurvey();
+
+    }
+
+    getSurveyType() {
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', '/api/test', true);
+        xhr.setRequestHeader('Content-type', 'text/plain');
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                this.testNumber = xhr.responseText;
+            }
+        }
+        xhr.send();
 
     }
 
@@ -88,15 +217,40 @@ class Perseia {
         this.map = new ol.Map({
             layers: [
                 new ol.layer.Tile({
-                    source: new ol.source.OSM()
+                    source: new ol.source.XYZ({
+                        url: 'tiles/{z}/{x}/{y}.png',
+                        tilePixelRatio: 4
+                    })
                 })
             ],
             target: 'map',
             view: new ol.View({
                 center: [-5480575.337250389, -2931337.0036498797],
-                zoom: 17
-            })
+                zoom: 20,
+                minZoom: 17,
+                maxZoom: 20,
+
+            }),
+            interactions: ol.interaction.defaults({ mouseWheelZoom: false }).extend([
+                new ol.interaction.MouseWheelZoom({
+                    constrainResolution: true // force zooming to a integer zoom
+                })
+            ]),
+            controls: [
+                new ol.control.ScaleLine({
+                    units: 'metric',
+
+                })
+            ]
         })
+
+        this.map.getView().on('change:rotation', () => {
+
+            let rotation = this.map.getView().getRotation();
+            let rvElm = document.getElementById('rv');
+            rvElm.style.transform = `rotate(${rotation + 0.383972}rad)`;
+
+        });
 
     }
 
@@ -110,9 +264,45 @@ class Perseia {
 
     }
 
+    initInteractions() {
+
+        this.drawLayer = new ol.layer.Vector({
+            source: new ol.source.Vector(),
+            style: new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'magenta',
+                    width: 2
+                })
+            })
+        });
+
+        this.map.addLayer(this.drawLayer);
+
+        this.modifyInteraction = new ol.interaction.Modify({
+            source: this.drawLayer.getSource()
+        });
+
+        this.drawInteraction = new ol.interaction.Draw({
+            source: this.drawLayer.getSource(),
+            type: 'LineString'
+        });
+
+        this.drawInteraction.on('drawend', () => {
+
+            this.confirmEnd();
+
+        });
+
+    }
+
     initElements() {
 
         this.startBtn = document.getElementById('start');
+        this.pauseBtn = document.getElementById('pause');
+        this.restartBtn = document.getElementById('restart');
+        this.drawBtn = document.getElementById('draw');
+        this.undoBtn = document.getElementById('undo');
+        this.finishBtn = document.getElementById('finish');
         this.agreeBtn = document.getElementById('agree');
         this.cancelBtn = document.getElementById('box-cancel');
         this.boxFinishBtn = document.getElementById('box-finish');
@@ -128,7 +318,7 @@ class Perseia {
         this.descriptionElm = document.getElementById('description');
         this.titleElm = document.getElementById('title');
         this.surveyContentElm = document.getElementById('survey-content');
-
+        this.pauseBoxElm = document.getElementById('pause-box');
 
 
     }
@@ -163,14 +353,14 @@ class Perseia {
 
     createClickInteration() {
 
-        this.clickInteration = new ol.interaction.Select();
-        this.map.addInteraction(this.clickInteration);
-        this.clickInteration.on('select', evt => {
+        // this.clickInteration = new ol.interaction.Select();
+        // this.map.addInteraction(this.clickInteration);
+        // this.clickInteration.on('select', evt => {
 
-            this.showFeatureInfo(evt.selected[0]);
-            this.clickInteration.getFeatures().clear();
+        //     this.showFeatureInfo(evt.selected[0]);
+        //     this.clickInteration.getFeatures().clear();
 
-        });
+        // });
 
     }
 
@@ -202,26 +392,54 @@ class Perseia {
 
     showFeatureInfo(feature) {
 
+        // this.boxElm.classList.remove('d-none');
+        // this.boxContentElm.innerHTML = `
+        //     <h3>${feature.getProperties().ambiente}</h3>
+        //     <p>Você selecionou como destino "${feature.getProperties().ambiente}".</p>
+        //     <p>Deseja finalizar o teste?</p>
+        // `;
+
+    }
+
+    confirmEnd() {
+
+        this.drawBtn.classList.remove('active-tool');
+        this.undoBtn.classList.add('d-none');
+        setTimeout(() => {
+            this.map.removeInteraction(this.drawInteraction);
+        }, 500)
+
         this.boxElm.classList.remove('d-none');
         this.boxContentElm.innerHTML = `
-            <h3>${feature.getProperties().ambiente}</h3>
-            <p>Você selecionou como destino "${feature.getProperties().ambiente}".</p>
-            <p>Deseja finalizar o teste?</p>
+            <h3>Deseja finalizar o teste?</h3>
         `;
+
+    }
+
+    getTimes() {
+
+        const startTime = this.startTimes[0];
+        const endTime = this.endTimes[this.endTimes.length - 1];
+        let duration = 0;
+
+        for (let i = 0; i < this.startTimes.length; i++) {
+            duration += this.endTimes[i] - this.startTimes[i];
+        }
+
+        return { startTime, endTime, duration }
+
 
     }
 
     getSurveyDataAsTSV() {
 
         let data = '';
-        data += `${this.startTime}\t`;
-        data += `${this.endTime}\t`;
-        data += `${(this.endTime - this.startTime) / 1000}\t`;
+        data += `${this.routeDefinition.geom}\t`;;
 
         let survey = this.routeDefinition.survey;
-        for (let i = 0; i < survey.length; i++) {
+        for (let j = 0; j < survey.length; j++) {
 
-            const question = survey[i];
+            const question = survey[j];
             switch (question.type) {
                 case 'stars':
                 case 'yesno':
@@ -241,15 +459,29 @@ class Perseia {
 
         }
 
+
+        return data;
+
+    }
+
+    getTestDataAsTSV() {
+
+        const { startTime, endTime, duration } = this.getTimes();
+        let data = '';
+        data += `${startTime}\t`;
+        data += `${endTime}\t`;
+        data += `${duration / 1000}\t`;
+        data += this.surveysData;
+
         return data;
 
     }
 
     saveSurvey() {
 
-        let data = this.getSurveyDataAsTSV();
+        let data = this.getTestDataAsTSV();
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', '/api/' + this.routeDefinition.test, true);
+        xhr.open('POST', '/api/' + this.tests[this.testNumber - 1].test, true);
         xhr.setRequestHeader('Content-type', 'text/plain');
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -262,7 +494,8 @@ class Perseia {
 
     createRoute() {
 
-        this.routeDefinition = this.routes[this.routeNumber - 1];
+        this.startTimes.push(Date.now());
+        this.routeDefinition = this.tests[this.testNumber - 1].routes[this.currentRoute];
         if (this.routeDefinition.type == 'complete') {
             this.createCompleteRoute();
         }
@@ -274,43 +507,71 @@ class Perseia {
         this.descriptionElm.innerHTML = '';
         this.titleElm.innerHTML = this.routeDefinition.title;
 
-        let route = window[this.routeDefinition.name];
-        this.routeLayer.getSource().clear();
+        //let route = window[this.routeDefinition.name];
+        //this.routeLayer.getSource().clear();
 
-        console.log(this.routeLayer)
+        //console.log(this.routeLayer)
 
-        for (let i = 0; i < route.features.length; i++) {
+        // for (let i = 0; i < route.features.length; i++) {
 
-            const f = route.features[i];
-            const color = "red";
+        //     const f = route.features[i];
+        //     const color = "red";
 
-            this.drawSegment(f, color, 2);
-            this.descriptionElm.innerHTML += this.getRouteHtml(f);
+        //     this.drawSegment(f, color, 2);
+        //     this.descriptionElm.innerHTML += this.getRouteHtml(f);
 
+        // }
+
+        let d = this.routeDefinition.descriptions;
+        for (let i = 0; i < d.length; i++) {
+            this.descriptionElm.innerHTML += this.getRouteHtml(d[i]);
         }
 
-        this.map.getView().fit(this.routeLayer.getSource().getExtent(), {
-            padding: [33, 33, 33, 33]
-        });
+        console.log(this)
 
 
+        this.createStartPoint(this.routeDefinition.startPoint);
     }
 
-    getRouteHtml(feature) {
+    createStartPoint(p) {
 
-        let refer = '';
-        if (feature.properties.referencia) {
-            refer = `<span style="background: url(imgs/${feature.properties.icone}) no-repeat;">
-                    ${feature.properties.referencia}
-                </span >`;
-        }
+        this.routeLayer.getSource().clear();
+        let pt = ol.proj.transform(
+            p,
+            'EPSG:4326',
+            'EPSG:3857'
+        );
+
+        var iconFeature = new ol.Feature({
+            geometry: new ol.geom.Point(pt)
+        });
+
+        var iconStyle = new ol.style.Style({
+            image: new ol.style.Icon({
+                anchor: [0.5, 0.5],
+                src: 'imgs/start.png',
+            }),
+        });
+
+        iconFeature.setStyle(iconStyle);
+        this.routeLayer.getSource().addFeature(iconFeature);
+
+        this.map.getView().setCenter(pt);
+        this.map.getView().setRotation(-0.383972);
+    }
+
+    getRouteHtml(h) {
+
+        // let refer = '';
+        // if (feature.properties.referencia) {
+        //     refer = `<span style="background: url(imgs/${feature.properties.icone}) no-repeat;">
+        //             ${feature.properties.referencia}
+        //         </span >`;
+        // }
 
         return `
             <div class="description-item active">
-                <div class="description-text">
-                    ${feature.properties.ordem}) ${feature.properties.descricao}
-                    ${refer}
-                </div>
+                ${h}
             </div>
         `;
 
@@ -346,7 +607,7 @@ class Perseia {
 
     }
 
-    getRadioElm(name, value) {
+    getRadioElm(name, value, text) {
 
         let container = document.createElement('div');
 
@@ -356,7 +617,7 @@ class Perseia {
         star.name = name;
 
         let label = document.createElement('label');
-        label.innerHTML = value;
+        label.innerHTML = text || value;
 
         container.append(star);
         container.append(label);
@@ -391,6 +652,7 @@ class Perseia {
 
         this.surveyElm.classList.remove('d-none');
         this.surveyContentElm.innerHTML = '';
+        window.scroll(0, 0);
 
         let survey = this.routeDefinition.survey;
         for (let i = 0; i < survey.length; i++) {
@@ -405,11 +667,13 @@ class Perseia {
                 case 'stars':
 
                     question.name = this.createUUID();
-                    question.s1 = this.getRadioElm(question.name, 1);
-                    question.s2 = this.getRadioElm(question.name, 2);
-                    question.s3 = this.getRadioElm(question.name, 3);
-                    question.s4 = this.getRadioElm(question.name, 4);
-                    question.s5 = this.getRadioElm(question.name, 5);
+                    question.s1 = this.getRadioElm(question.name, 1, '1 - Muito baixo');
+                    question.s2 = this.getRadioElm(question.name, 2, '2 - Baixo');
+                    question.s3 = this.getRadioElm(question.name, 3, '3 - Médio');
+                    question.s4 = this.getRadioElm(question.name, 4, '4 - Alto');
+                    question.s5 = this.getRadioElm(question.name, 5, '5 - Muito alto');
+
+                    question.elements = [question.s1, question.s2, question.s3, question.s4, question.s5];
 
                     this.surveyContentElm.append(question.s1);
                     this.surveyContentElm.append(question.s2);
@@ -425,6 +689,8 @@ class Perseia {
                     question.s1 = this.getRadioElm(question.name, 'Sim');
                     question.s2 = this.getRadioElm(question.name, 'Não');
 
+                    question.elements = [question.s1, question.s2];
+
                     this.surveyContentElm.append(question.s1);
                     this.surveyContentElm.append(question.s2);
 
@@ -435,6 +701,8 @@ class Perseia {
                     question.name = this.createUUID();
                     question.s1 = this.getRadioElm(question.name, 'A');
                     question.s2 = this.getRadioElm(question.name, 'B');
+
+                    question.elements = [question.s1, question.s2];
 
                     this.surveyContentElm.append(question.s1);
                     this.surveyContentElm.append(question.s2);
@@ -447,6 +715,8 @@ class Perseia {
 
                     question.input = document.createElement('textarea');
                     question.input.rows = 5;
+
+                    question.elements = [question.input];
 
                     this.surveyContentElm.append(question.input);
 
@@ -465,6 +735,17 @@ class Perseia {
 
     }
 
+    saveDrawedGeom() {
+
+        var format = new ol.format.WKT();
+        var feature = format.writeFeature(this.drawLayer.getSource().getFeatures()[0], {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857',
+        });
+        this.routeDefinition.geom = feature;
+
+    }
+
 
     registerEvents() {
 
@@ -479,11 +760,65 @@ class Perseia {
             this.mainElm.classList.remove('d-none');
             this.startFullScreen();
             this.initMap();
-            this.createClickInteration();
+            this.initInteractions();
+            //this.createClickInteration();
             this.createLayers();
             this.initRouteLayer();
+
+            this.routesCount = this.tests[this.testNumber - 1].routes.length;
+            this.currentRoute = 0;
             this.createRoute();
-            this.startTime = Date.now();
+
+
+
+        });
+
+        this.pauseBtn.addEventListener('click', () => {
+            this.endTimes.push(Date.now());
+            this.pauseBoxElm.classList.remove('d-none');
+
+        });
+
+        this.restartBtn.addEventListener('click', () => {
+            this.startTimes.push(Date.now());
+            this.pauseBoxElm.classList.add('d-none');
+
+        });
+
+        this.drawBtn.addEventListener('click', () => {
+
+            if (!this.drawInteraction.getMap()) {
+                this.drawLayer.getSource().clear();
+                this.map.addInteraction(this.drawInteraction);
+                this.undoBtn.classList.remove('d-none');
+                this.drawBtn.classList.add('active')
+            }
+
+        });
+
+        this.undoBtn.addEventListener('click', () => {
+
+            this.drawInteraction.removeLastPoint();
+
+        });
+
+        this.finishBtn.addEventListener('click', () => {
+
+            if (!this.drawInteraction.getMap() &&
+                this.drawLayer.getSource().getFeatures().length > 0) {
+                this.confirmEnd();
+            }
+
+            this.undoBtn.classList.add('d-none');
+            this.drawInteraction.finishDrawing();
+
+            if (this.drawLayer.getSource().getFeatures().length == 0) {
+                alert('Por favor, insira uma rota!');
+                return;
+            }
+
+            this.map.removeInteraction(this.drawInteraction);
+
 
         });
 
@@ -492,11 +827,13 @@ class Perseia {
         });
 
         this.boxFinishBtn.addEventListener('click', () => {
-            this.endTime = Date.now();
-            this.boxElm.classList.add('d-none');
-            this.startSurvey();
-            this.endFullScreen()
 
+            this.endTimes.push(Date.now());
+            this.boxElm.classList.add('d-none');
+
+            this.saveDrawedGeom();
+            this.startSurvey();
+            this.endFullScreen();
 
         });
 
@@ -504,9 +841,25 @@ class Perseia {
 
             if (this.validateSurvey()) {
 
-                this.surveyElm.classList.add('d-none');
-                this.thanksElm.classList.remove('d-none');
-                this.saveSurvey();
+                if (this.routesCount - 1 > this.currentRoute) {
+
+                    this.currentRoute++;
+                    this.instructionsElm.classList.add('d-none');
+                    this.mainElm.classList.remove('d-none');
+                    this.boxElm.classList.add('d-none');
+                    this.surveyElm.classList.add('d-none');
+                    this.thanksElm.classList.add('d-none');
+                    this.surveysData += this.getSurveyDataAsTSV();
+                    this.createRoute();
+
+                } else {
+
+                    this.surveyElm.classList.add('d-none');
+                    this.thanksElm.classList.remove('d-none');
+                    this.surveysData += this.getSurveyDataAsTSV();
+                    this.saveSurvey();
+
+                }
 
             } else {
 

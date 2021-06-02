@@ -15,7 +15,7 @@ body {
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: 9;
+  z-index: 10;
   position: absolute;
   overflow-y: auto;
 }
@@ -33,6 +33,10 @@ body {
 
 .f-left {
   float: left !important;
+}
+
+.f-right {
+  float: right !important;
 }
 
 .green {
@@ -53,6 +57,87 @@ body {
   height: 60%;
   border-radius: 0.5rem;
   background: #f0f0f0;
+  position: relative;
+}
+
+.map button {
+  position: absolute;
+  z-index: 9;
+  bottom: 1rem;
+  color: #eee;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.rv {
+  width: 4rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+  transform: rotate(0.383972);
+}
+
+.tools {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(240, 240, 240);
+  z-index: 9;
+  user-select: none;
+}
+
+.tools div {
+  position: relative;
+  float: left;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+  width: 3rem;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 2px rgb(150, 150, 150);
+}
+
+.tools div:hover,
+.active-tool {
+  background-color: rgb(212, 212, 212) !important;
+}
+
+.tools span {
+  font-size: 12px;
+}
+
+.map-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: rgb(240, 240, 240);
+}
+
+.map-box div {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.5rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 1px 1px 2px rgb(150, 150, 150);
+}
+
+.map-box span {
+  font-size: 12px;
 }
 
 .title {
@@ -201,4 +286,10 @@ body {
 
 .ol-attribution {
   display: none !important;
+}
+
+.ol-scale-bar,
+.ol-scale-line {
+  bottom: unset;
+  top: 8px;
 }

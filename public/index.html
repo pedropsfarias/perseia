@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -113,15 +116,47 @@
         <div class="title">
             <h1 id="title"></h1>
         </div>
-        <div class="map" id="map"></div>
+        <div class="map" id="map">
+
+            <img id="rv" src="imgs/rv2.png" class="rv" alt="" srcset="">
+
+            <div id="pause-box" class="map-box d-none">
+                <div id="restart">
+                    <i class="fas fa-play"></i> <br><span>Retomar teste</span>
+                </div>
+            </div>
+
+
+            <div class="tools">
+
+                <div id="pause">
+                    <i class="fas fa-pause"></i> <br><span>Pausar</span>
+                </div>
+
+                <div id="draw">
+                    <i class="fas fa-pen"></i> <br><span>Desenhar</span>
+                </div>
+
+                <div id="undo" class="d-none">
+                    <i class="fas fa-undo"></i> <br><span>Desfazer</span>
+                </div>
+
+                <div id="finish" class="f-right">
+                    <i class="fas fa-check"></i> <br><span>Finalizar</span>
+                </div>
+
+            </div>
+
+        </div>
+
         <div id="description" class="description"></div>
     </div>
 
 </body>
-<script src="layers/ccja_andar_1_0.js"></script>
+<script src="layers/ccja_andar0_1.js"></script>
 <script src="layers/rota1.js"></script>
 <script src="layers/rota2.js"></script>
-<script src="styles/ccja_andar_1_0_style.js"></script>
+<script src="styles/ccja_andar0_1_style.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
 <script src="Perseia.js"></script>
 <script>
