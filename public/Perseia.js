@@ -8,21 +8,6 @@ class Perseia {
 
         ];
 
-        // let refer = '';
-        // if (feature.properties.referencia) {
-        //     refer = `<span style="background: url(imgs/${feature.properties.icone}) no-repeat;">
-        //             ${feature.properties.referencia}
-        //         </span >`;
-        // }
-
-        // return `
-        //     <div class="description-item active">
-        //         <div class="description-text">
-        //             ${feature.properties.ordem}) ${feature.properties.descricao}
-        //             ${refer}
-        //         </div>
-        //     </div>
-
         this.tests = [
             {
                 test: 'sem_rel_esp',
@@ -33,64 +18,79 @@ class Perseia {
                         startPoint: [-49.2328477, -25.4522988],
                         descriptions: [
                             `<div class="description-text">
-                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
-                            '</div>`,
+                        Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                    '</div>`,
                             `<div class="description-text">
-                                1) Caminhe para oeste por 22 m
-                            </div>`,
+                        1) Caminhe para oeste por 12m
+                    </div>`,
                             `<div class="description-text">
-                                2) Caminhe para o norte por 40 m
-                            </div>`,
+                        2) Caminhe para o norte por 22m
+                    </div>`,
                             `<div class="description-text">
-                                3) Caminhe para oeste por 15 m
-                            </div>`,
+                        3) Caminhe para oeste por 12m
+                    </div>`,
                             `<div class="description-text">
-                                4) Caminhe para o norte por  20 m
-                            </div>`,
+                        4) Caminhe para o norte por 41m
+                    </div>`,
                             `<div class="description-text">
-                                5) Caminhe para leste por 28 m
-                            </div>`,
+                        5) Caminhe para oeste por 14m
+                    </div>`,
                             `<div class="description-text">
-                                6) Caminhe para o norte por  18 m
-                            </div>`,
+                        6) Caminhe para o norte por 21m
+                    </div>`,
                             `<div class="description-text">
-                                7) Caminhe para oeste por 12 m
-                            </div>`,
+                        7) Caminhe para leste por 27m
+                    </div>`,
                             `<div class="description-text">
-                                8) Caminhe para o norte por  90 m
-                            </div>`
+                        8) Caminhe para o norte por 18m
+                    </div>`,
+                            `<div class="description-text">
+                        9) Caminhe para oeste por 12m
+                    </div>`,
+                            `<div class="description-text">
+                        10) Caminhe para o norte por 91m
+                    </div>`,
+                            `<div class="description-text">
+                        11) Você chegou ao seu destino
+                    </div>`
                         ],
                         survey: [
                             {
-                                description: 'Você costuma se perder em ambientes indoor?',
-                                type: 'stars'
+                                description: 'Com que frequência você costuma se perder em ambientes indoor?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
                             },
                             {
-                                description: 'Possui familiaridade com o ambiente? ',
-                                type: 'stars'
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
                             },
                             {
-                                description: 'Sentiu dificuldade em executar a tarefa do traçado de rota? ',
-                                type: 'stars'
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota ?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
                             },
                             {
-                                description: 'Sentiu necessidade de olhar instruções anteriores para ter certeza que estava no local correto? ',
-                                type: 'stars'
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
                             },
                             {
                                 description: 'Como você considera sua percepção de distância?',
-                                type: 'stars'
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
                             },
                             {
-                                description: 'Se houvessem pontos de referência na descrição você acredita que te ajudariam? Por exemplo, caminhe por 16m em direção ao museu?',
-                                type: 'stars'
+                                description: 'Se houvessem pontos de referência na descrição da rota, por exemplo: caminhe por 16m em direção ao museu. Qual o nível de ajuda você acredita que essa informação a mais te traria? ',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
                             },
                             {
                                 description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
                                 type: 'textarea'
                             },
                             {
-                                description: 'Quais elementos do interior dos edificios você lembra de ter visto no mapa?',
+                                description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
                             // {
@@ -138,20 +138,502 @@ class Perseia {
                             </div>`,
                             `<div class="description-text">
                                 9) Caminhe para o norte por 11 m
+                            </div>`,
+                            `<div class="description-text">
+                               10) Você chegou ao seu destino
                             </div>`
                         ],
                         survey: [
                             {
-                                description: 'Possui familiaridade com o ambiente?',
-                                type: 'stars'
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
                             },
                             {
-                                description: 'Sentiu dificuldade em executar a tarefa do traçado de rota?',
-                                type: 'stars'
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
                             },
                             {
-                                description: 'Sentiu necessidade de olhar instruções anteriores para ter certeza que estava no local correto?',
-                                type: 'stars'
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            {
+                                image: 't12.jpg',
+                                description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
+                                type: 'ab'
+                            },
+                        ]
+                    }
+                ]
+            },
+            {
+                test: 'rel_esp',
+                routes: [
+                    {
+                        type: 'complete',
+                        title: 'ROTA RUBENS MEISTER',
+                        startPoint: [-49.2328477, -25.4522988],
+                        descriptions: [
+                            `<div class="description-text">
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            </div>`,
+                            `<div class="description-text">
+                                1) Siga para a esquerda
+                            </div>`,
+                            `<div class="description-text">
+                                2) Vire para a direita
+                            </div>`,
+                            `<div class="description-text">
+                                3) Vire à esquerda
+                            </div>`,
+                            `<div class="description-text">
+                                4) Em seguida vire à direita e caminhe até o final
+                            </div>`,
+                            `<div class="description-text">
+                                5) Depois siga para o lado esquerdo
+                            </div>`,
+                            `<div class="description-text">
+                                6) Vire para a direita
+                            </div>`,
+                            `<div class="description-text">
+                                7) Vire para direita novamente
+                            </div>`,
+                            `<div class="description-text">
+                                8) Vire para a esquerda
+                            </div>`,
+                            `<div class="description-text">
+                                9) Novamente a esquerda
+                            </div>`,
+                            `<div class="description-text">
+                                10) Vire para a direita e siga até o final
+                            </div>`,
+                            `<div class="description-text">
+                               11) Você chegou ao seu destino
+                            </div>`
+                        ],
+                        survey: [
+                            {
+                                description: 'Com que frequência você costuma se perder em ambientes indoor?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota ?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Se houvessem pontos de referência na descrição da rota, por exemplo: caminhe por 16m em direção ao museu. Qual o nível de ajuda você acredita que essa informação a mais te traria? ',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            // {
+                            //     image: 'p1.png',
+                            //     description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
+                            //     type: 'ab'
+                            // },
+                        ]
+                    },
+                    {
+                        type: 'complete',
+                        title: 'ROTA BIOLÓGICAS',
+                        startPoint: [-49.2328354, -25.4461572],
+                        descriptions: [
+                            `<div class="description-text">
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            </div>`,
+                            `<div class="description-text">
+                                1) Siga para a direita
+                            </div>`,
+                            `<div class="description-text">
+                                2) Vire à direita e vá até o final 
+                            </div>`,
+                            `<div class="description-text">
+                                3) Vire novamente a direita
+                            </div>`,
+                            `<div class="description-text">
+                                4) Entre a esquerda, depois vire à direita
+                            </div>`,
+                            `<div class="description-text">
+                                5) Vire para a esquerda vá até o final e vire para a esquerda
+                            </div>`,
+                            `<div class="description-text">
+                                6) Novamente vire à esquerda
+                            </div>`,
+                            `<div class="description-text">
+                                7) Vire à direita
+                            </div>`,
+                            `<div class="description-text">
+                               8) E em seguida a esquerda e siga até o final
+                            </div>`,
+                            `<div class="description-text">
+                              9) Você chegou ao seu destino
+                            </div>`
+                        ],
+                        survey: [
+                            {
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            {
+                                image: 't12.jpg',
+                                description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
+                                type: 'ab'
+                            },
+                        ]
+                    }
+                ]
+            },
+            {
+                test: 'com_MR',
+                routes: [
+                    {
+                        type: 'complete',
+                        title: 'ROTA RUBENS MEISTER',
+                        startPoint: [-49.2328477, -25.4522988],
+                        descriptions: [
+                            `<div class="description-text">
+                        Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                    '</div>`,
+                            `<div class="description-text">
+                        1) Siga para a esquerda e em seguida vire a direita
+                    </div>`,
+                            `<div class="description-text">
+                       2) Vá até o final do corredor e vire a esquerda
+                    </div>`,
+                            `<div class="description-text">
+                        3) Depois da cantina e vire para a direita 
+                    </div>`,
+                            `<div class="description-text">
+                       4) Siga em frente até o final do corredor
+                    </div>`,
+                            `<div class="description-text">
+                        5) Siga para o lado oposto a papelaria
+                    </div>`,
+                            `<div class="description-text">
+                        6) Em seguida vire à direita e novamente a direita
+                    </div>`,
+                            `<div class="description-text">
+                        7) Vire para a esquerda e novamente para a esquerda
+                    </div>`,
+                            `<div class="description-text">
+                        8) Vire para a direita e passe em frente a biblioteca, atravesse na passarela
+                    </div>`,
+                            `<div class="description-text">
+                        9) A frente estará o seu destino
+                    </div>`
+
+                        ],
+                        survey: [
+                            {
+                                description: 'Com que frequência você costuma se perder em ambientes indoor?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Se houvessem mais pontos de referência na descrição da rota, por exemplo: caminhe por 16m em direção ao museu e vire depois do elevador. Qual o nível de ajuda você acredita que essas informações a mais te trariam? ',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            // {
+                            //     image: 'p1.png',
+                            //     description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
+                            //     type: 'ab'
+                            // },
+                        ]
+                    },
+                    {
+                        type: 'complete',
+                        title: 'ROTA BIOLÓGICAS',
+                        startPoint: [-49.2328354, -25.4461572],
+                        descriptions: [
+                            `<div class="description-text">
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            </div>`,
+                            `<div class="description-text">
+                                1) Siga em direção a cantina
+                            </div>`,
+                            `<div class="description-text">
+                                2) Vire à direita e vá até o final 
+                            </div>`,
+                            `<div class="description-text">
+                                3) Vire novamente a direita, atravesse a passarela
+                            </div>`,
+                            `<div class="description-text">
+                                4) Entre a esquerda, depois vire à direita em direção a papelaria
+                            </div>`,
+                            `<div class="description-text">
+                                5) Após passar a papelaria vire para a esquerda vá até o final e caminhe em direção a cantina
+                            </div>`,
+                            `<div class="description-text">
+                                6) Passe em frente a cantina e vire à esquerda
+                            </div>`,
+                            `<div class="description-text">
+                                7) A frente estará o seu destino
+                            </div>`
+
+                        ],
+                        survey: [
+                            {
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            {
+                                image: 't34.jpg',
+                                description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
+                                type: 'ab'
+                            },
+                        ]
+                    }
+                ]
+            },
+            {
+                test: 'com_MR_POI',
+                routes: [
+                    {
+                        type: 'complete',
+                        title: 'ROTA RUBENS MEISTER',
+                        startPoint: [-49.2328477, -25.4522988],
+                        descriptions: [
+                            `<div class="description-text">
+                        Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                    '</div>`,
+
+                            `<div class="description-text">
+                        1) Siga para a esquerda em direção ao elevador e em seguida vire a direita
+                    </div>`,
+                            `<div class="description-text">
+                        2) Vá até o final do corredor e vire a esquerda
+                    </div>`,
+                            `<div class="description-text">
+                        3) Depois da cantina e vire para a direita
+                    </div>`,
+                            `<div class="description-text">
+                       4) Após a segunda escada, siga para o lado oposto a papelaria
+                    </div>`,
+                            `<div class="description-text">
+                        5) Passe pelo equipamento de incêndio e vire à direita
+                    </div>`,
+                            `<div class="description-text">
+                       6) Após as portas de saída vire à direita novamente
+                    </div>`,
+                            `<div class="description-text">
+                        7) Ande em direção a saída mais próxima e passe em frente dela
+                    </div>`,
+                            `<div class="description-text">
+                        8) Vire para a esquerda
+                    </div>`,
+                            `<div class="description-text">
+                        9) Vire para a direita e passe em frente a biblioteca, e passe na passarela
+                    </div>`,
+                            `<div class="description-text">
+                        10) A frente estará o seu destino
+                    </div>`
+
+                        ],
+                        survey: [
+                            {
+                                description: 'Com que frequência você costuma se perder em ambientes indoor?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota ?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Os pontos de referência presentes na descrição te ajudaram a se localizar ',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
+                            },
+                            {
+                                description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
+                                type: 'textarea'
+                            },
+                            {
+                                description: 'Quais elementos do interior dos edificios você lembra de ter visto no mapa?',
+                                type: 'textarea'
+                            },
+                            // {
+                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
+                            //     type: 'yesno'
+                            // },
+                            // {
+                            //     image: 'p1.png',
+                            //     description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
+                            //     type: 'ab'
+                            // },
+                        ]
+                    },
+                    {
+                        type: 'complete',
+                        title: 'ROTA BIOLÓGICAS',
+                        startPoint: [-49.2328354, -25.4461572],
+                        descriptions: [
+                            `<div class="description-text">
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            </div>`,
+                            `<div class="description-text">
+                                1) Siga em direção a cantina
+                            </div>`,
+                            `<div class="description-text">
+                                2) Vire à direita e depois da escada vire à direita na porta de saída
+                            </div>`,
+                            `<div class="description-text">
+                                3) Passe pela escada e atravesse a passarela 
+                            </div>`,
+                            `<div class="description-text">
+                                4) Entre a esquerda, e no banheiro vire à direita em direção a papelaria
+                            </div>`,
+                            `<div class="description-text">
+                                5) Após passar a papelaria vire para a esquerda na escada
+                            </div>`,
+                            `<div class="description-text">
+                                6) Depois do terceiro hidrante caminhe em direção a cantina
+                            </div>`,
+                            `<div class="description-text">
+                                7) Passe em frente a cantina e vire à esquerda 
+                            </div>`,
+                            `<div class="description-text">
+                                8) A frente estará o seu destino 
+                            </div>`
+
+                        ],
+                        survey: [
+                            {
+                                description: 'Qual o seu grau de familiaridade com o ambiente da tarefa anterior?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Qual foi seu nível de dificuldade ao executar a tarefa do traçado de rota ?',
+                                type: 'stars',
+                                labels: ['Muito baixo', 'Baixo', 'Médio', 'Alto', 'Muito alto']
+                            },
+                            {
+                                description: 'Quantifique a sua necessidade de consultar instruções anteriores para se certificar de que estava no local correto?',
+                                type: 'stars',
+                                labels: ['Muito baixa', 'Baixa', 'Média', 'Alta', 'Muito alta']
                             },
                             {
                                 description: 'Tente descrever o mais detalhadamente a rota que você traçou na tarefa anterior, como se você a estivesse explicando para alguém que precisa percorrer o mesmo caminho.',
@@ -166,7 +648,7 @@ class Perseia {
                             //     type: 'yesno'
                             // },
                             {
-                                image: 'p1.png',
+                                image: 't34.jpg',
                                 description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
                                 type: 'ab'
                             },
@@ -174,6 +656,7 @@ class Perseia {
                     }
                 ]
             }
+
         ]
 
         this.startTimes = [];
@@ -200,15 +683,17 @@ class Perseia {
 
     getSurveyType() {
 
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', '/api/test', true);
-        xhr.setRequestHeader('Content-type', 'text/plain');
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                this.testNumber = xhr.responseText;
-            }
-        }
-        xhr.send();
+        // let xhr = new XMLHttpRequest();
+        // xhr.open('GET', '/api/test', true);
+        // xhr.setRequestHeader('Content-type', 'text/plain');
+        // xhr.onreadystatechange = () => {
+        //     if (xhr.readyState == 4 && xhr.status == 200) {
+        //         this.testNumber = xhr.responseText;
+        //     }
+        // }
+        // xhr.send();
+
+        this.testNumber = prompt('n test? (1,2,3,4)', '1');
 
     }
 
@@ -219,7 +704,7 @@ class Perseia {
                 new ol.layer.Tile({
                     source: new ol.source.XYZ({
                         url: 'tiles/{z}/{x}/{y}.png',
-                        tilePixelRatio: 4
+                        tilePixelRatio: 2
                     })
                 })
             ],
@@ -251,6 +736,112 @@ class Perseia {
             rvElm.style.transform = `rotate(${rotation + 0.383972}rad)`;
 
         });
+
+    }
+
+    initPOILayer() {
+
+        let format = new ol.format.GeoJSON();
+        let features = format.readFeatures(poi, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857'
+        });
+
+        this.poiLayer = new ol.layer.Vector({
+            source: new ol.source.Vector(),
+            style: f => {
+
+                const p = f.getProperties()['tipoAmb'];
+                let icon, size, isPOI = false;
+                switch (p) {
+                    case 'Escada':
+                        icon = 'POI_Escada.svg';
+                        size = 12;
+                        isPOI = true;
+                        break;
+                    case 'Banheiro Compartilhado':
+                        icon = 'POI_Banheiro.svg';
+                        size = 12;
+                        isPOI = true;
+                        break;
+                    case 'Elevador':
+                        icon = 'POI_Elevador.svg';
+                        size = 12;
+                        isPOI = true;
+                        break;
+                    case 'Papelaria':
+                        icon = 'MR_Papelaria.svg';
+                        size = 12;
+                        break;
+                    case 'Cantina':
+                        icon = 'MR_cantina.svg';
+                        size = 12;
+                        break;
+                    case 'Extintor de Incêndio':
+                        icon = 'POI_equip_incendio.svg';
+                        size = 12;
+                        isPOI = true;
+                        break;
+                    case 'Hidrante':
+                        icon = 'POI_equip_incendio.svg';
+                        size = 12;
+                        isPOI = true;
+                        break;
+                    case 'Portas':
+                        icon = 'POI_Saida.svg';
+                        size = 12;
+                        isPOI = true;
+                        break;
+                    case 'Saida':
+                        icon = 'POI_Saida.svg';
+                        size = 12;
+                        isPOI = true;
+                        break;
+                    case 'Corredor Suspenso':
+                        icon = 'MR_corredor_suspenso.svg';
+                        size = 12;
+                        break;
+                    case 'Biblioteca':
+                        icon = 'MR_biblioteca.svg';
+                        size = 12;
+                        break;
+                    default:
+                        break;
+                }
+
+                let style = [new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 0.5],
+                        src: 'imgs/' + icon,
+
+                    }),
+                })];
+
+                if (!isPOI) {
+
+                    return style;
+
+                } else {
+
+                    if (this.map.getView().getZoom() > 18) {
+
+                        return style;
+
+                    }
+
+                }
+
+                return [];
+
+            }
+
+        });
+
+        this.poiLayer.getSource().addFeatures(features);
+
+        this.map.addLayer(this.poiLayer);
+
+
 
     }
 
@@ -351,19 +942,6 @@ class Perseia {
 
     }
 
-    createClickInteration() {
-
-        // this.clickInteration = new ol.interaction.Select();
-        // this.map.addInteraction(this.clickInteration);
-        // this.clickInteration.on('select', evt => {
-
-        //     this.showFeatureInfo(evt.selected[0]);
-        //     this.clickInteration.getFeatures().clear();
-
-        // });
-
-    }
-
     startFullScreen() {
 
         let elem = document.documentElement;
@@ -387,17 +965,6 @@ class Perseia {
         } else if (document.msExitFullscreen) { /* IE11 */
             document.msExitFullscreen();
         }
-
-    }
-
-    showFeatureInfo(feature) {
-
-        // this.boxElm.classList.remove('d-none');
-        // this.boxContentElm.innerHTML = `
-        //     <h3>${feature.getProperties().ambiente}</h3>
-        //     <p>Você selecionou como destino "${feature.getProperties().ambiente}".</p>
-        //     <p>Deseja finalizar o teste?</p>
-        // `;
 
     }
 
@@ -507,28 +1074,10 @@ class Perseia {
         this.descriptionElm.innerHTML = '';
         this.titleElm.innerHTML = this.routeDefinition.title;
 
-        //let route = window[this.routeDefinition.name];
-        //this.routeLayer.getSource().clear();
-
-        //console.log(this.routeLayer)
-
-        // for (let i = 0; i < route.features.length; i++) {
-
-        //     const f = route.features[i];
-        //     const color = "red";
-
-        //     this.drawSegment(f, color, 2);
-        //     this.descriptionElm.innerHTML += this.getRouteHtml(f);
-
-        // }
-
         let d = this.routeDefinition.descriptions;
         for (let i = 0; i < d.length; i++) {
             this.descriptionElm.innerHTML += this.getRouteHtml(d[i]);
         }
-
-        console.log(this)
-
 
         this.createStartPoint(this.routeDefinition.startPoint);
     }
@@ -549,7 +1098,7 @@ class Perseia {
         var iconStyle = new ol.style.Style({
             image: new ol.style.Icon({
                 anchor: [0.5, 0.5],
-                src: 'imgs/start.png',
+                src: 'imgs/start.png'
             }),
         });
 
@@ -562,32 +1111,11 @@ class Perseia {
 
     getRouteHtml(h) {
 
-        // let refer = '';
-        // if (feature.properties.referencia) {
-        //     refer = `<span style="background: url(imgs/${feature.properties.icone}) no-repeat;">
-        //             ${feature.properties.referencia}
-        //         </span >`;
-        // }
-
         return `
             <div class="description-item active">
                 ${h}
             </div>
         `;
-
-    }
-
-    getStepedRouteUI() {
-
-        /*
-        <div class="description-item active">
-                <div class="description-text">
-                    Vire a direita na <span style="background: url(imgs/lanchonete.png) no-repeat;">
-                        Lanchonete</span>
-                    <button>Próximo</button>
-                </div>
-            </div>
-        */
 
     }
 
@@ -610,14 +1138,17 @@ class Perseia {
     getRadioElm(name, value, text) {
 
         let container = document.createElement('div');
+        let id = this.createUUID();
 
         let star = document.createElement('input');
         star.type = 'radio';
         star.value = value;
         star.name = name;
+        star.id = id;
 
         let label = document.createElement('label');
         label.innerHTML = text || value;
+        label.setAttribute('for', id);
 
         container.append(star);
         container.append(label);
@@ -652,7 +1183,8 @@ class Perseia {
 
         this.surveyElm.classList.remove('d-none');
         this.surveyContentElm.innerHTML = '';
-        window.scroll(0, 0);
+        this.surveyContentElm.scrollTop = 0;
+        this.surveyElm.scrollTop = 0;
 
         let survey = this.routeDefinition.survey;
         for (let i = 0; i < survey.length; i++) {
@@ -667,11 +1199,11 @@ class Perseia {
                 case 'stars':
 
                     question.name = this.createUUID();
-                    question.s1 = this.getRadioElm(question.name, 1, '1 - Muito baixo');
-                    question.s2 = this.getRadioElm(question.name, 2, '2 - Baixo');
-                    question.s3 = this.getRadioElm(question.name, 3, '3 - Médio');
-                    question.s4 = this.getRadioElm(question.name, 4, '4 - Alto');
-                    question.s5 = this.getRadioElm(question.name, 5, '5 - Muito alto');
+                    question.s1 = this.getRadioElm(question.name, 1, question.labels[0] || '1 - Muito baixo');
+                    question.s2 = this.getRadioElm(question.name, 2, question.labels[1] || '2 - Baixo');
+                    question.s3 = this.getRadioElm(question.name, 3, question.labels[2] || '3 - Médio');
+                    question.s4 = this.getRadioElm(question.name, 4, question.labels[3] || '4 - Alto');
+                    question.s5 = this.getRadioElm(question.name, 5, question.labels[4] || '5 - Muito alto');
 
                     question.elements = [question.s1, question.s2, question.s3, question.s4, question.s5];
 
@@ -728,10 +1260,7 @@ class Perseia {
 
             this.surveyContentElm.append(document.createElement('br'));
 
-
         }
-
-
 
     }
 
@@ -760,8 +1289,8 @@ class Perseia {
             this.mainElm.classList.remove('d-none');
             this.startFullScreen();
             this.initMap();
+            this.initPOILayer();
             this.initInteractions();
-            //this.createClickInteration();
             this.createLayers();
             this.initRouteLayer();
 

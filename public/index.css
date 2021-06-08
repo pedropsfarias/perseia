@@ -29,6 +29,7 @@ body {
   border-radius: 0.5rem;
   margin-top: 2rem;
   font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .f-left {
@@ -292,4 +293,10 @@ body {
 .ol-scale-line {
   bottom: unset;
   top: 8px;
+}
+
+video {
+  margin-left: 15%;
+  width: 70%;
+  box-shadow: 1px 1px 4px rgb(150, 150, 150);
 }
