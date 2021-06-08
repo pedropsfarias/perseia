@@ -5,7 +5,6 @@ class Perseia {
         this.surveysData = '';
         this.layersName = [
             //'ccja_andar0_1',
-
         ];
 
         this.tests = [
@@ -18,41 +17,41 @@ class Perseia {
                         startPoint: [-49.2328477, -25.4522988],
                         descriptions: [
                             `<div class="description-text">
-                        Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
-                    '</div>`,
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            '</div>`,
                             `<div class="description-text">
-                        1) Caminhe para oeste por 12m
-                    </div>`,
+                                1) Caminhe para oeste por 12m
+                            </div>`,
                             `<div class="description-text">
-                        2) Caminhe para o norte por 22m
-                    </div>`,
+                                2) Caminhe para o norte por 22m
+                            </div>`,
                             `<div class="description-text">
-                        3) Caminhe para oeste por 12m
-                    </div>`,
+                                3) Caminhe para oeste por 12m
+                            </div>`,
                             `<div class="description-text">
-                        4) Caminhe para o norte por 41m
-                    </div>`,
+                                4) Caminhe para o norte por 41m
+                            </div>`,
                             `<div class="description-text">
-                        5) Caminhe para oeste por 14m
-                    </div>`,
+                                5) Caminhe para oeste por 14m
+                            </div>`,
                             `<div class="description-text">
-                        6) Caminhe para o norte por 21m
-                    </div>`,
+                                6) Caminhe para o norte por 21m
+                            </div>`,
                             `<div class="description-text">
-                        7) Caminhe para leste por 27m
-                    </div>`,
+                                7) Caminhe para leste por 27m
+                            </div>`,
                             `<div class="description-text">
-                        8) Caminhe para o norte por 18m
-                    </div>`,
+                                8) Caminhe para o norte por 18m
+                            </div>`,
                             `<div class="description-text">
-                        9) Caminhe para oeste por 12m
-                    </div>`,
+                                9) Caminhe para oeste por 12m
+                            </div>`,
                             `<div class="description-text">
-                        10) Caminhe para o norte por 91m
-                    </div>`,
+                                10) Caminhe para o norte por 91m
+                            </div>`,
                             `<div class="description-text">
-                        11) Você chegou ao seu destino
-                    </div>`
+                                11) Você chegou ao seu destino
+                            </div>`
                         ],
                         survey: [
                             {
@@ -93,15 +92,6 @@ class Perseia {
                                 description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
-                            // {
-                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                            //     type: 'yesno'
-                            // },
-                            // {
-                            //     image: 'p1.png',
-                            //     description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
-                            //     type: 'ab'
-                            // },
                         ]
                     },
                     {
@@ -167,10 +157,6 @@ class Perseia {
                                 description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
-                            // {
-                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                            //     type: 'yesno'
-                            // },
                             {
                                 image: 't12.jpg',
                                 description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
@@ -259,15 +245,6 @@ class Perseia {
                                 description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
-                            // {
-                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                            //     type: 'yesno'
-                            // },
-                            // {
-                            //     image: 'p1.png',
-                            //     description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
-                            //     type: 'ab'
-                            // },
                         ]
                     },
                     {
@@ -330,10 +307,6 @@ class Perseia {
                                 description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
-                            // {
-                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                            //     type: 'yesno'
-                            // },
                             {
                                 image: 't12.jpg',
                                 description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
@@ -352,35 +325,35 @@ class Perseia {
                         startPoint: [-49.2328477, -25.4522988],
                         descriptions: [
                             `<div class="description-text">
-                        Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
-                    '</div>`,
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            '</div>`,
                             `<div class="description-text">
-                        1) Siga para a esquerda e em seguida vire a direita
-                    </div>`,
+                                1) Siga para a esquerda e em seguida vire a direita
+                            </div>`,
                             `<div class="description-text">
-                       2) Vá até o final do corredor e vire a esquerda
-                    </div>`,
+                            2) Vá até o final do corredor e vire a esquerda
+                            </div>`,
                             `<div class="description-text">
-                        3) Depois da cantina e vire para a direita 
-                    </div>`,
+                                3) Depois da cantina e vire para a direita 
+                            </div>`,
                             `<div class="description-text">
-                       4) Siga em frente até o final do corredor
-                    </div>`,
+                            4) Siga em frente até o final do corredor
+                            </div>`,
                             `<div class="description-text">
-                        5) Siga para o lado oposto a papelaria
-                    </div>`,
+                                5) Siga para o lado oposto a papelaria
+                            </div>`,
                             `<div class="description-text">
-                        6) Em seguida vire à direita e novamente a direita
-                    </div>`,
+                                6) Em seguida vire à direita e novamente a direita
+                            </div>`,
                             `<div class="description-text">
-                        7) Vire para a esquerda e novamente para a esquerda
-                    </div>`,
+                                7) Vire para a esquerda e novamente para a esquerda
+                            </div>`,
                             `<div class="description-text">
-                        8) Vire para a direita e passe em frente a biblioteca, atravesse na passarela
-                    </div>`,
+                                8) Vire para a direita e passe em frente a biblioteca, atravesse na passarela
+                            </div>`,
                             `<div class="description-text">
-                        9) A frente estará o seu destino
-                    </div>`
+                                9) A frente estará o seu destino
+                            </div>`
 
                         ],
                         survey: [
@@ -483,10 +456,6 @@ class Perseia {
                                 description: 'Quais elementos do interior dos edifícios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
-                            // {
-                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                            //     type: 'yesno'
-                            // },
                             {
                                 image: 't34.jpg',
                                 description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
@@ -505,39 +474,39 @@ class Perseia {
                         startPoint: [-49.2328477, -25.4522988],
                         descriptions: [
                             `<div class="description-text">
-                        Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
-                    '</div>`,
+                                Considerando que você está parado e olhando de frente para o banheiro, siga as instruções abaixo:
+                            '</div>`,
 
                             `<div class="description-text">
-                        1) Siga para a esquerda em direção ao elevador e em seguida vire a direita
-                    </div>`,
+                                1) Siga para a esquerda em direção ao elevador e em seguida vire a direita
+                            </div>`,
                             `<div class="description-text">
-                        2) Vá até o final do corredor e vire a esquerda
-                    </div>`,
+                                2) Vá até o final do corredor e vire a esquerda
+                            </div>`,
                             `<div class="description-text">
-                        3) Depois da cantina e vire para a direita
-                    </div>`,
+                                3) Depois da cantina e vire para a direita
+                            </div>`,
                             `<div class="description-text">
-                       4) Após a segunda escada, siga para o lado oposto a papelaria
-                    </div>`,
+                                4) Após a segunda escada, siga para o lado oposto a papelaria
+                            </div>`,
                             `<div class="description-text">
-                        5) Passe pelo equipamento de incêndio e vire à direita
-                    </div>`,
+                                5) Passe pelo equipamento de incêndio e vire à direita
+                            </div>`,
                             `<div class="description-text">
-                       6) Após as portas de saída vire à direita novamente
-                    </div>`,
+                                6) Após as portas de saída vire à direita novamente
+                            </div>`,
                             `<div class="description-text">
-                        7) Ande em direção a saída mais próxima e passe em frente dela
-                    </div>`,
+                                7) Vire para esquerda, depois da porta de saída vire para a esquerda novamente
+                            </div>`,
                             `<div class="description-text">
-                        8) Vire para a esquerda
-                    </div>`,
+                                8) Vire para a esquerda
+                            </div>`,
                             `<div class="description-text">
-                        9) Vire para a direita e passe em frente a biblioteca, e passe na passarela
-                    </div>`,
+                                9) Vire para a direita e passe em frente a biblioteca, e passe na passarela
+                            </div>`,
                             `<div class="description-text">
-                        10) A frente estará o seu destino
-                    </div>`
+                                10) A frente estará o seu destino
+                            </div>`
 
                         ],
                         survey: [
@@ -574,15 +543,6 @@ class Perseia {
                                 description: 'Quais elementos do interior dos edificios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
-                            // {
-                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                            //     type: 'yesno'
-                            // },
-                            // {
-                            //     image: 'p1.png',
-                            //     description: 'QUAL DESCRIÇÃO VOCÊ PREFERE?',
-                            //     type: 'ab'
-                            // },
                         ]
                     },
                     {
@@ -643,10 +603,6 @@ class Perseia {
                                 description: 'Quais elementos do interior dos edificios você lembra de ter visto no mapa?',
                                 type: 'textarea'
                             },
-                            // {
-                            //     description: 'PR DE REFERENCIA TE AJUDARIAM? CAMINHE POR 16M ATÉ A CANTINA?',
-                            //     type: 'yesno'
-                            // },
                             {
                                 image: 't34.jpg',
                                 description: 'Dentre as descrições de rota apresentadas abaixo, qual descrição você prefere?',
